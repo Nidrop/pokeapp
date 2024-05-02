@@ -75,7 +75,7 @@ class _PokeapiDataSource implements PokeapiDataSource {
   }
 
   @override
-  Future<PokemonDto> getPokemon(int id) async {
+  Future<PokemonDto> getPokemon(String name) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -88,7 +88,7 @@ class _PokeapiDataSource implements PokeapiDataSource {
     )
             .compose(
               _dio.options,
-              '/api/v2/pokemon/${id}',
+              '/api/v2/pokemon/${name}',
               queryParameters: queryParameters,
               data: _data,
             )

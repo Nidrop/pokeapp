@@ -15,7 +15,7 @@ import 'package:pokeapp/domain/repository/pokemon_repository.dart';
 
 class PokeapiRepository implements PokemonRepository {
   final PokeapiDataSource _source;
-  String? next = '';
+  String? next;
   String? previous;
 
   PokeapiRepository(this._source);
@@ -67,6 +67,7 @@ class PokeapiRepository implements PokemonRepository {
   Future<PokemonList> getListNext() async {
     if (next == null) {
       return Future.error(Exception('next is null'));
+      // return getList();
     }
     String args = '';
     try {
@@ -122,9 +123,9 @@ class PokeapiRepository implements PokemonRepository {
   }
 
   @override
-  Future<Pokemon> getPokemon(int id) async {
+  Future<Pokemon> getPokemon(String name) async {
     try {
-      final pokemonDto = await _source.getPokemon(id);
+      final pokemonDto = await _source.getPokemon(name);
       final result = pokemonDto.toModel();
       return result;
     } on DioException catch (e) {

@@ -15,6 +15,6 @@ abstract class PokeapiDataSource {
   @GET("/api/v2/pokemon?{query}")
   Future<PokemonListDto> getListWithArgs(@Path("query") String query);
 
-  @GET("/api/v2/pokemon/{id}")
-  Future<PokemonDto> getPokemon(@Path("id") int id);
+  @GET("/api/v2/pokemon/{name}")
+  Future<PokemonDto> getPokemon(@Path("name") String name);
 }

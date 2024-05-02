@@ -5,5 +5,5 @@ abstract class PokemonRepository {
   Future<PokemonList> getList();
   Future<PokemonList> getListNext();
   Future<PokemonList> getListPrevious();
-  Future<Pokemon> getPokemon(int id);
+  Future<Pokemon> getPokemon(String name);
 }
