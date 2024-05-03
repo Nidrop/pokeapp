@@ -14,11 +14,12 @@ class PokemonDetails extends StatelessWidget {
         const SizedBox(
           width: 10,
         ),
-        Expanded(
+        Flexible(
             flex: 3,
             child: Card(
                 child: CachedNetworkImage(
               imageUrl: pokemon.imagePath,
+              placeholder: (context, url) => const CircularProgressIndicator(),
               errorWidget: (context, url, error) =>
                   const Text('image loading error'),
             ))),
