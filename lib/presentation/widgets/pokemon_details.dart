@@ -16,8 +16,12 @@ class PokemonDetails extends StatelessWidget {
         ),
         Expanded(
             flex: 3,
-            child:
-                Card(child: CachedNetworkImage(imageUrl: pokemon.imagePath))),
+            child: Card(
+                child: CachedNetworkImage(
+              imageUrl: pokemon.imagePath,
+              errorWidget: (context, url, error) =>
+                  const Text('image loading error'),
+            ))),
         const SizedBox(
           width: 8,
         ),
